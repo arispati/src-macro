@@ -9,10 +9,12 @@ Builder::macro('onSort', function (
     string $sortParam = 'sort',
     string $sortTypeParam = 'sort_type'
 ) {
-    if (app('request')->filled($sortParam)) {
-        $sortParams = explode(',', app('request')->get($sortParam));
-        $order      = app('request')->filled($sortTypeParam)
-            ? app('request')->get($sortTypeParam)
+    $request = app('request');
+
+    if ($request->filled($sortParam)) {
+        $sortParams = explode(',', $request->get($sortParam));
+        $order      = $request->filled($sortTypeParam)
+            ? $request->get($sortTypeParam)
             : 'asc';
 
         foreach ($sortParams as $column) :

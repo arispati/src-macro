@@ -23,6 +23,7 @@
 	- [onSearch](#dqb-onSearch)
 	- [onSort](#dqb-onSort)
 	- [onFilter](#dqb-onFilter)
+	- [onBetWeen](#dqb-onBetween)
 
 ### Cara Penggunaan
 
@@ -32,9 +33,9 @@
 
 	```php
 	onSearch(
-		array  $columns  = [],
+		array $columns = [],
 		// default query param dari front-end
-		string  $searchParam  =  'search'
+		string $searchParam = 'search'
 	)
 	```
 
@@ -52,10 +53,10 @@
 
 	```php
 	onSort(
-		array  $columns  = [],
+		array $columns = [],
 		// default query param dari front-end
-		string  $sortParam  =  'sort',
-		string  $sortTypeParam  =  'sort_type'
+		string $sortParam = 'sort',
+		string $sortTypeParam = 'sort_type'
 	)
 	```
 
@@ -74,7 +75,7 @@
     Filter query berdasarkan kolom dan value
 
 	```php
-	onFilter(array  $columns) // kolom harus ditetapkan
+	onFilter(array $columns) // kolom harus ditetapkan
 	```
 
 	contoh:
@@ -85,4 +86,24 @@
 		// dari query param => kolom pada query
 		'nama' => 'namaTabel.nama'
 	])
+	```
+
+- <a name="dqb-onBetween"></a> **onBetween**
+
+    Filter hasil berdasarkan dua tanggal yang ditetapkan
+
+	```php
+	onBetween(
+		string $column = 'created_at',
+		// default query param dari front-end
+		string $startDateParam = 'start_date',
+		string $endDateParam = 'end_date'
+	)
+	```
+
+	contoh:
+	
+    ```php
+	// jika parameter sesuai default
+	$query = DB::table('namaTabel')->onBetween()
 	```
