@@ -13,15 +13,16 @@
         }
     ],
     "require": {
-        "php": ">=7",
-        "illuminate/support": "^5.5|^6.0|^7.0|^8.0",
-        "illuminate/database": "^5.5|^6.0|^7.0|^8.0"
+        "php": ">=7"
     },
     "require-dev": {
+        "laravel/laravel": "^5.6",
+        "laravel/lumen": "^5.7",
         "squizlabs/php_codesniffer": "3.*"
     },
     "suggest": {
-        "spatie/laravel-collection-macros": "A set of useful Laravel collection macros."
+        "spatie/laravel-collection-macros": "A set of useful Laravel collection macros.",
+        "maatwebsite/excel": "Supercharged Excel exports and imports in Laravel"
     },
     "autoload": {
         "psr-4": {

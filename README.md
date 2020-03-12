@@ -20,14 +20,16 @@
 ### Macro yang tersedia
 
 - **Database - Query Builder**
-	- [onSearch](#dqb-onSearch)
-	- [onSort](#dqb-onSort)
-	- [onFilter](#dqb-onFilter)
-	- [onBetWeen](#dqb-onBetween)
+	- [onSearch](#dqbOnSearch)
+	- [onSort](#dqbOnSort)
+	- [onFilter](#dqbOnFilter)
+	- [onBetWeen](#dqbOnBetween)
+- **Response**
+	- [downloadExcel](#rspDownloadExcel)
 
 ### Cara Penggunaan
 
-- <a name="dqb-onSearch"></a> **onSearch**
+- <a name="dqbOnSearch"></a> **onSearch**
 
     Pencarian berdasarkan kolom yang sudah ditetapkan
 
@@ -47,7 +49,7 @@
 	])
 	```
 
-- <a name="dqb-onSort"></a> **onSort**
+- <a name="dqbOnSort"></a> **onSort**
 
     Order hasil query berdasarkan kolom yang sudah ditetapkan
 
@@ -70,7 +72,7 @@
 	])
 	```
 
-- <a name="dqb-onFilter"></a> **onFilter**
+- <a name="dqbOnFilter"></a> **onFilter**
 
     Filter query berdasarkan kolom dan value
 
@@ -88,7 +90,7 @@
 	])
 	```
 
-- <a name="dqb-onBetween"></a> **onBetween**
+- <a name="dqbOnBetween"></a> **onBetween**
 
     Filter hasil berdasarkan dua tanggal yang ditetapkan
 
@@ -106,4 +108,23 @@
     ```php
 	// jika parameter sesuai default
 	$query = DB::table('namaTabel')->onBetween()
+	```
+
+- <a name="rspDownloadExcel"></a> **downloadExcel**
+
+    Download dan hapus file excel hasil export (response: blob data)
+
+	```php
+	downloadExcel(
+		// $class harus menggunakan trait Maatwebsite\Excel\Concerns\Exportable
+		object $class,
+		// nama file termasuk ekstensinya
+		string $namaFile
+	)
+	```
+
+	contoh:
+	
+    ```php
+	return response()->downloadExcel(new DataToExport(), 'namaFile.xls');
 	```
